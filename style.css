@@ -1,0 +1,54 @@
+*::before, *::after {
+  box-sizing: border-box;
+  font-family: "system-ui";
+}
+:root {
+    --container-color:black;
+    --cell-color:white;
+    --font-size:7.5vmin;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    margin: 0;
+    font-size: var(--font-size);
+}
+#container{
+    display: grid;
+    grid-template-rows:repeat(var(--size), var(--cell-size));
+    grid-template-columns:repeat(var(--size), var(--cell-size));
+    gap: var(--gap);
+    padding: var(--gap);
+    border-radius: 1vmin;
+    position: relative;
+    background-color: var(--container-color);
+}
+.cell{
+    border-radius: 1vmin;
+    background-color: var(--cell-color);
+}
+.tile{
+    position: absolute;
+    top: calc(var(--y) * (var(--cell-size) + var(--gap)) + var(--gap));
+    left: calc(var(--x) * (var(--cell-size) + var(--gap)) + var(--gap));
+    width: var(--cell-size);
+    height:var(--cell-size);
+    border-radius: 1vmin;
+    background-color: hsl(100,100%,var(--lightness));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    animation: appear .2s ease-in-out;
+    transition: .1s ease-in-out;
+}
+@keyframes appear{
+    0%{
+        opacity: .5;
+        transform: scale(0);
+    }
+    
+}
